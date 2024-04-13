@@ -1,0 +1,7 @@
+画出开放区区域，各坐标点与这一区域的距离，若为“0”，则表示在开放区内
+dv_zone <- read_sf(dsn = "G341022合肥经济技术开发区.txt")
+plot(dv_zone)
+library('sf')
+df <- read.table("hefei.txt", header = TRUE, sep = "\t")
+points <- st_as_sf(df, coords = c("lng", "lat"), crs = 4326)
+st_distance(points, dv_zone)
